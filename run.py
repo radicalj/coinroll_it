@@ -27,7 +27,7 @@
 #ltc: Lb5TUyhdUtqsExLmiyqCLAiBZUrs8mEYze
 # Thanks.  
 
-import urllib2,urllib,os,simplejson, random
+import urllib2,urllib,os,json, random
 
 # Variables used to run the script
 
@@ -85,7 +85,7 @@ def call(api_url, **kwargs):
 		req = urllib2.Request(api_url, data, header)
 		response = urllib2.urlopen(req)
 		result = response.read()
-		result = simplejson.loads(result)
+		result = json.loads(result)
 		if 'error' in result:
 		# An error occurred; raise an exception
 			raise Error({'message': result['error']})
